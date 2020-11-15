@@ -7,7 +7,6 @@ import StoreProduct from '../SubComponents/StoreProduct/StoreProduct'
 
 const StoreShowcase = (): JSX.Element => {
   const [active, setActive] = useState<string>('Popular')
-  console.log(data)
   return (
     <Wrapper>
       <ShowcaseHeader>

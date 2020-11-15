@@ -12,6 +12,7 @@ import {
   ColorSizeQty,
   Buttons
 } from './styles'
+import { useSelector, RootStateOrAny } from 'react-redux'
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined'
 import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
@@ -21,6 +22,8 @@ import SyncAltOutlinedIcon from '@material-ui/icons/SyncAltOutlined'
 import ProductImage from '../../src/assets/productview.jpg'
 
 const ProductView = (): JSX.Element => {
+  const state = useSelector((state: RootStateOrAny) => state.cart)
+  console.log(state)
   return (
     <Container>
       <Wrapper>
@@ -108,7 +111,7 @@ const ProductView = (): JSX.Element => {
           <Buttons>
             <button>
               <ShoppingCartOutlinedIcon fontSize="small" />
-              <span>ADD TO CART</span>
+              <span>CART</span>
             </button>
             <button>
               <FavoriteBorderOutlinedIcon fontSize="small" />

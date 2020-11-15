@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import { Container } from '../../styles/pages/Product'
+
 import ProductView from '../../../Components/ProductView/ProductView'
 import Information from '../../../Components/Information/Information'
 
@@ -12,8 +14,10 @@ const shop = (): JSX.Element => {
       <Head>
         <title>Avenue - {query.product}</title>
       </Head>
-      <ProductView />
-      <Information />
+      <Container>
+        <ProductView />
+        <Information />
+      </Container>
     </>
   )
 }
