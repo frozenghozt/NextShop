@@ -62,6 +62,6 @@ export const Cart = styled.div`
   margin-left: 20px;
   cursor: pointer;
   span {
-    margin-left: 15px;
+    margin-left: 8px;
   }
 `

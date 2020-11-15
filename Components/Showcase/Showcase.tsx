@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from 'react'
 import {
   Container,
+  Wrapper,
   ShowcaseHeader,
   Gallery,
   ProductOne,
@@ -27,7 +28,7 @@ const initialState = {
   product6: false
 }
 
-const reducer = (state: typeof initialState, action) => {
+const reducer = (state: typeof initialState, action: { type: string }) => {
   switch (action.type) {
     case 'product1':
       return { ...state, product1: !state.product1 }
@@ -50,90 +51,100 @@ const Showcase = (): JSX.Element => {
   const [active, setActive] = useState<string>('Popular')
   const [isHover, dispatch] = useReducer(reducer, initialState)
 
-  const chooseActive = (category: string): void => {
-    setActive(category)
-  }
-
   return (
     <Container>
-      <ShowcaseHeader>
-        <ul>
-          <li
-            style={{ color: active === 'Popular' ? '#00c8c8' : '#727272' }}
-            onClick={() => chooseActive('Popular')}
+      <Wrapper>
+        <ShowcaseHeader>
+          <ul>
+            <li
+              style={{ color: active === 'Popular' ? '#00c8c8' : '#727272' }}
+              onClick={() => setActive('Popular')}
+            >
+              POPULAR
+            </li>
+            <li
+              style={{ color: active === 'New' ? '#00c8c8' : '#727272' }}
+              onClick={() => setActive('New')}
+            >
+              NEW ARRIVALS
+            </li>
+            <li
+              style={{ color: active === 'Best' ? '#00c8c8' : '#727272' }}
+              onClick={() => setActive('Best')}
+            >
+              BEST SELLERS
+            </li>
+            <li
+              style={{ color: active === 'Special' ? '#00c8c8' : '#727272' }}
+              onClick={() => setActive('Special')}
+            >
+              SPECIAL OFFERS
+            </li>
+            <li
+              style={{ color: active === 'Coming' ? '#00c8c8' : '#727272' }}
+              onClick={() => setActive('Coming')}
+            >
+              COMING SOON
+            </li>
+          </ul>
+        </ShowcaseHeader>
+        <Gallery>
+          <ProductOne
+            onMouseEnter={() => dispatch({ type: 'product1' })}
+            onMouseLeave={() => dispatch({ type: 'product1' })}
           >
-            POPULAR
-          </li>
-          <li
-            style={{ color: active === 'New' ? '#00c8c8' : '#727272' }}
-            onClick={() => chooseActive('New')}
+            <div>
+              <img src={product1} alt={product1} />
+            </div>
+            <ShowcaseTag isHover={isHover.product1} />
+          </ProductOne>
+          <ProductTwo
+            onMouseEnter={() => dispatch({ type: 'product2' })}
+            onMouseLeave={() => dispatch({ type: 'product2' })}
           >
-            NEW ARRIVALS
-          </li>
-          <li
-            style={{ color: active === 'Best' ? '#00c8c8' : '#727272' }}
-            onClick={() => chooseActive('Best')}
+            <div>
+              <img src={product2} alt={product2} />
+            </div>
+            <ShowcaseTag isHover={isHover.product2} />
+          </ProductTwo>
+          <ProductThree
+            onMouseEnter={() => dispatch({ type: 'product3' })}
+            onMouseLeave={() => dispatch({ type: 'product3' })}
           >
-            BEST SELLERS
-          </li>
-          <li
-            style={{ color: active === 'Special' ? '#00c8c8' : '#727272' }}
-            onClick={() => chooseActive('Special')}
+            <div>
+              <img src={product3} alt={product3} />
+            </div>
+            <ShowcaseTag isHover={isHover.product3} />
+          </ProductThree>
+          <ProductFour
+            onMouseEnter={() => dispatch({ type: 'product4' })}
+            onMouseLeave={() => dispatch({ type: 'product4' })}
           >
-            SPECIAL OFFERS
-          </li>
-          <li
-            style={{ color: active === 'Coming' ? '#00c8c8' : '#727272' }}
-            onClick={() => chooseActive('Coming')}
+            <div>
+              <img src={product4} alt={product4} />
+            </div>
+            <ShowcaseTag isHover={isHover.product4} />
+          </ProductFour>
+          <ProductFive
+            onMouseEnter={() => dispatch({ type: 'product5' })}
+            onMouseLeave={() => dispatch({ type: 'product5' })}
           >
-            COMING SOON
-          </li>
-        </ul>
-      </ShowcaseHeader>
-      <Gallery>
-        <ProductOne
-          onMouseEnter={() => dispatch({ type: 'product1' })}
-          onMouseLeave={() => dispatch({ type: 'product1' })}
-        >
-          <img src={product1} alt={product1} />
-          <ShowcaseTag isHover={isHover.product1} />
-        </ProductOne>
-        <ProductTwo
-          onMouseEnter={() => dispatch({ type: 'product2' })}
-          onMouseLeave={() => dispatch({ type: 'product2' })}
-        >
-          <img src={product2} alt={product2} />
-          <ShowcaseTag isHover={isHover.product2} />
-        </ProductTwo>
-        <ProductThree
-          onMouseEnter={() => dispatch({ type: 'product3' })}
-          onMouseLeave={() => dispatch({ type: 'product3' })}
-        >
-          <img src={product3} alt={product3} />
-          <ShowcaseTag isHover={isHover.product3} />
-        </ProductThree>
-        <ProductFour
-          onMouseEnter={() => dispatch({ type: 'product4' })}
-          onMouseLeave={() => dispatch({ type: 'product4' })}
-        >
-          <img src={product4} alt={product4} />
-          <ShowcaseTag isHover={isHover.product4} />
-        </ProductFour>
-        <ProductFive
-          onMouseEnter={() => dispatch({ type: 'product5' })}
-          onMouseLeave={() => dispatch({ type: 'product5' })}
-        >
-          <img src={product5} alt={product5} />
-          <ShowcaseTag isHover={isHover.product5} />
-        </ProductFive>
-        <ProductSix
-          onMouseEnter={() => dispatch({ type: 'product6' })}
-          onMouseLeave={() => dispatch({ type: 'product6' })}
-        >
-          <img src={product6} alt={product6} />
-          <ShowcaseTag isHover={isHover.product6} />
-        </ProductSix>
-      </Gallery>
+            <div>
+              <img src={product5} alt={product5} />
+            </div>
+            <ShowcaseTag isHover={isHover.product5} />
+          </ProductFive>
+          <ProductSix
+            onMouseEnter={() => dispatch({ type: 'product6' })}
+            onMouseLeave={() => dispatch({ type: 'product6' })}
+          >
+            <div>
+              <img src={product6} alt={product6} />
+            </div>
+            <ShowcaseTag isHover={isHover.product6} />
+          </ProductSix>
+        </Gallery>
+      </Wrapper>
     </Container>
   )
 }

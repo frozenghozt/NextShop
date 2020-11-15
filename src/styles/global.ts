@@ -7,9 +7,14 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
-    font: 400 15px Poppins, sans-serif;
+    font: 400 15px Roboto, sans-serif;
   }
 `
