@@ -23,7 +23,6 @@ import ProductImage from '../../src/assets/productview.jpg'
 
 const ProductView = (): JSX.Element => {
   const state = useSelector((state: RootStateOrAny) => state.cart)
-  console.log(state)
   return (
     <Container>
       <Wrapper>

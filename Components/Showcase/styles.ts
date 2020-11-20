@@ -106,7 +106,7 @@ export const ProductThree = styled.picture`
       overflow: hidden;
     }
     > img {
-      object-fit: contain;
+      object-fit: cover;
       width: 100%;
       height: 100%;
       transition: all 0.3s ease-in-out;
@@ -131,7 +131,7 @@ export const ProductFour = styled.picture`
       overflow: hidden;
     }
     > img {
-      object-fit: contain;
+      object-fit: cover;
       width: 100%;
       height: 100%;
       transition: all 0.3s ease-in-out;

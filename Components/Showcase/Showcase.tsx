@@ -11,12 +11,6 @@ import {
   ProductFive,
   ProductSix
 } from './styles'
-import product1 from '../../src/assets/product1.jpg'
-import product2 from '../../src/assets/product2.jpg'
-import product3 from '../../src/assets/product3.jpg'
-import product4 from '../../src/assets/product4.jpg'
-import product5 from '../../src/assets/product5.jpg'
-import product6 from '../../src/assets/product6.jpg'
 import ShowcaseTag from '../SubComponents/ShowcaseTag/ShowcaseTag'
 
 const initialState = {
@@ -47,9 +41,29 @@ const reducer = (state: typeof initialState, action: { type: string }) => {
   }
 }
 
-const Showcase = (): JSX.Element => {
+type Product = {
+  categorie: string[]
+  title: string
+  review?: number
+  price: number
+  discountPrice?: number
+  availability: number
+  sku: string
+  tags: string[]
+  description: string
+  colors: { string: string[] }
+  size: string[]
+}
+
+type PropTypes = {
+  products: Array<Product>
+}
+
+const Showcase = ({ products }: PropTypes): JSX.Element => {
   const [active, setActive] = useState<string>('Popular')
   const [isHover, dispatch] = useReducer(reducer, initialState)
+  const colorKeys = Object.keys(products[0].colors)
+  console.log(products)
 
   return (
     <Container>
@@ -94,7 +108,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product1' })}
           >
             <div>
-              <img src={product1} alt={product1} />
+              <img src={products[0].colors[colorKeys[0]][0]} alt="product1" />
             </div>
             <ShowcaseTag isHover={isHover.product1} />
           </ProductOne>
@@ -103,7 +117,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product2' })}
           >
             <div>
-              <img src={product2} alt={product2} />
+              <img src={products[1].colors[colorKeys[0]][0]} alt="product2" />
             </div>
             <ShowcaseTag isHover={isHover.product2} />
           </ProductTwo>
@@ -112,7 +126,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product3' })}
           >
             <div>
-              <img src={product3} alt={product3} />
+              <img src={products[2].colors[colorKeys[0]][0]} alt="product3" />
             </div>
             <ShowcaseTag isHover={isHover.product3} />
           </ProductThree>
@@ -121,7 +135,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product4' })}
           >
             <div>
-              <img src={product4} alt={product4} />
+              <img src={products[3].colors[colorKeys[0]][0]} alt="product4" />
             </div>
             <ShowcaseTag isHover={isHover.product4} />
           </ProductFour>
@@ -130,7 +144,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product5' })}
           >
             <div>
-              <img src={product5} alt={product5} />
+              <img src={products[4].colors[colorKeys[0]][0]} alt="product5" />
             </div>
             <ShowcaseTag isHover={isHover.product5} />
           </ProductFive>
@@ -139,7 +153,7 @@ const Showcase = (): JSX.Element => {
             onMouseLeave={() => dispatch({ type: 'product6' })}
           >
             <div>
-              <img src={product6} alt={product6} />
+              <img src={products[5].colors[colorKeys[0]][0]} alt="product6" />
             </div>
             <ShowcaseTag isHover={isHover.product6} />
           </ProductSix>
