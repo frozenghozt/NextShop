@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 5
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "categories": {
+      "type": "enumeration",
+      "enum": [
+        "man",
+        "women",
+        "unisex"
+      ],
+      "required": true
+    },
+    "review": {
+      "type": "decimal",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "availability": {
+      "type": "integer",
+      "required": true
+    },
+    "sku": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "tags": {
+      "type": "json",
+      "required": true
+    },
+    "sizes": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
