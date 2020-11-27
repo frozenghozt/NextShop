@@ -1,5 +1,6 @@
 
-## Ecommerce (Under construction) (NextJS SSG and SSR + Typescript + Node + GraphQL + StrapiCMS)
+## Ecommerce (Under construction)
+## (NextJS SSG and SSR + Typescript + Node + GraphQL + StrapiCMS)
 
 Image preview: https://i.imgur.com/PifdjXz.png
 
